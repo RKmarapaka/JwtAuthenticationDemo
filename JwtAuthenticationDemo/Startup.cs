@@ -36,6 +36,7 @@ namespace JwtAuthenticationDemo
             });
             services.AddControllers();
 
+            //add Authentication Jwt Bearer
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                         .AddJwtBearer(opt=> {
                             opt.TokenValidationParameters = new TokenValidationParameters 
@@ -63,7 +64,9 @@ namespace JwtAuthenticationDemo
 
             app.UseRouting();
 
-            app.UseAuthentication();
+
+          
+            app.UseAuthentication();       //Use Authentication
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
